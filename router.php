@@ -8,6 +8,14 @@ $routes = [
     '/contact' => 'controllers/contact.php',
 ];
 
+function toController($uri,$routes){
+    if(array_key_exists($uri, $routes)) {
+        require $routes[$uri];
+    }else{
+        abort();
+    }
+}
+
 function abort($code = 404)
 {
     http_response_code($code);
@@ -16,8 +24,4 @@ function abort($code = 404)
 }
 
 
-if(array_key_exists($uri, $routes)) {
-    require $routes[$uri];
-}else{
-    abort();
-}
+toController($uri,$routes);
