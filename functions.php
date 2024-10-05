@@ -2,6 +2,7 @@
 
 function dd($var)
 {
+    header("HTTP/1.0 500");
     echo "<pre>";
     var_dump($var);
     echo "</pre>";

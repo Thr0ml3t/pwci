@@ -19,7 +19,7 @@ if($note['user_id'] != 1){
     abort(403);
 }
 
-$heading = 'Note: ' . $note['title'];
+$heading = 'Note: ' . htmlspecialchars($note['title']);
 
 
 require 'views/note.view.php';
